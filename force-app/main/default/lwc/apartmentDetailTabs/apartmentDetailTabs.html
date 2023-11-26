@@ -1,0 +1,26 @@
+<template>
+    <template lwc:if={wiredRecord.data}>
+        <lightning-tabset variant="scoped">
+            <lightning-tab label={labels.details}>
+                <c-apartment-details apartment={wiredRecord}></c-apartment-details>
+            </lightning-tab>
+            <lightning-tab label="Rooms">
+                <c-apartment-rooms-details record-id={apartmentId}></c-apartment-rooms-details>
+            </lightning-tab>
+            <lightning-tab label={labels.reviews} value="reviews">
+                <c-apartment-reviews record-id={apartmentId}></c-apartment-reviews>
+            </lightning-tab>
+            <lightning-tab label={labels.addReview}>
+                <c-new-review-form record-id={apartmentId} oncreatereview={handleReviewCreated}></c-new-review-form>
+            </lightning-tab>
+            <lightning-tab label="Book">
+                <c-apartment-rent record-id={apartmentId}></c-apartment-rent>
+            </lightning-tab>
+        </lightning-tabset>
+    </template>
+    <template lwc:else>
+        <lightning-card>
+            <span class="slds-align_absolute-center select-apartment-text">{labels.pleaseSelectAnApartment}</span>
+        </lightning-card>
+    </template>
+</template>

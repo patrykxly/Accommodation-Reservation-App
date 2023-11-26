@@ -1,0 +1,23 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item> <lightning-input label="Name" onchange={handleSearchOptionChange}></lightning-input> </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-combobox options={typeFiltersOptions} onchange={handleSearchOptionChange} label="Type" class="slds-var-m-left_small"></lightning-combobox>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-combobox options={countryFiltersOptions} onchange={handleSearchOptionChange} label="Country" class="slds-var-m-left_small"></lightning-combobox>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-input type="date" label="Date From" onchange={handleSearchOptionChange} min={minDate} class="slds-var-m-left_small"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-input type="date" label="Date To" onchange={handleSearchOptionChange} min={minDate} class="slds-var-m-left_small"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-combobox options={priceFiltersOptions} onchange={handleSearchOptionChange} label="Price Per Night" class="slds-var-m-left_small"></lightning-combobox>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-combobox options={capacityFiltersOptions} onchange={handleSearchOptionChange} label="Capacity" value="1" class="slds-var-m-left_small"></lightning-combobox>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

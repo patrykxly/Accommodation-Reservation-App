@@ -1,0 +1,22 @@
+<template>
+    <c-apartment-filters
+        lwc:if={dataLoaded}
+        apartments={wiredApartmentsResult.data}
+        reservations={wiredReservationsResult.data}
+        rooms={wiredRoomsResult.data}
+        onfilterload={handleFilterLoad}
+    ></c-apartment-filters>
+    <lightning-layout multiple-rows lwc:if={filtersLoaded}>
+        <lightning-layout-item size="12">
+            <lightning-card title={labels.findApartment}>
+                <lightning-button label={labels.newApartment} onclick={createApartment} slot="actions" lwc:if={shouldDisplayAddButton}></lightning-button>
+                <p class="slds-var-p-horizontal_small">
+                    <c-apartment-filter-options onsearch={filterApartments} filters={filtersOptions}></c-apartment-filter-options>
+                </p>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" class="slds-var-p-top_small slds-is-relative">
+            <c-apartment-filter-results apartments={apartments} wired-apartments={wiredApartmentsResult}></c-apartment-filter-results>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

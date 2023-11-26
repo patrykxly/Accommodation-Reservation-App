@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Accommodation Rental permissions</label>
+    <permissionSets>Accommodation_Rental_class_accesses</permissionSets>
+    <permissionSets>Accommodation_Rental_object_accesses</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

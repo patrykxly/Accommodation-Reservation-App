@@ -1,0 +1,40 @@
+<template>
+    <template lwc:if={isAnyReviewAvailable}>
+        <div class="slds-feed reviews-style slds-is-relative slds-scrollable_y">
+            <lightning-spinner lwc:if={isLoading} alternative-text="Loading" variant="brand" size="small"></lightning-spinner>
+            <ul class="slds-feed__list">
+                <template for:each={apartmentReviews} for:item="apartmentReview">
+                    <li class="slds-feed__item" key={apartmentReview.Id}>
+                        <article class="slds-post">
+                            <header class="slds-post__header slds-media">
+                                <div class="slds-media__figure">
+                                    <lightning-avatar variant="circle" src={apartmentReview.CreatedBy.SmallPhotoUrl}></lightning-avatar>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <p>
+                                            <a title={apartmentReview.CreatedBy.Name} onclick={navigateToRecord} data-record-id={apartmentReview.CreatedBy.Id}>
+                                                {apartmentReview.CreatedBy.Name}
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <p class="slds-text-body_small">
+                                        <lightning-formatted-date-time value={apartmentReview.LastModifiedDate}></lightning-formatted-date-time>
+                                    </p>
+                                </div>
+                            </header>
+                            <div class="slds-text-longform">
+                                <p class="slds-text-title_caps">{apartmentReview.Name}</p>
+                                <lightning-formatted-rich-text value={apartmentReview.Comment__c}></lightning-formatted-rich-text>
+                            </div>
+                            <c-apartment-rating read-only="true" value={apartmentReview.Rating__c}></c-apartment-rating>
+                        </article>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </template>
+    <template lwc:else>
+        <div class="slds-align_absolute-center slds-scrollable_y">No reviews available.</div>
+    </template>
+</template>

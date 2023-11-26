@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title={labels.chosenLocation} icon-name="action:map">
+        <template lwc:if={shouldMapBeVisible}>
+            <lightning-map map-markers={mapMarkers} zoom-level="13"></lightning-map>
+        </template>
+        <template lwc:else>
+            <span class="slds-align_absolute-center">{labels.selectApartment}</span>
+        </template>
+    </lightning-card>
+</template>

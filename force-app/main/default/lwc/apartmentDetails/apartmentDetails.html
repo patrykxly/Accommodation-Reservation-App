@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title={apartmentName} icon-name={detailsTabIconName}>
+        <lightning-button label="Details" onclick={navigateToRecordViewPage} slot="actions"></lightning-button>
+        <lightning-record-view-form record-id={recordId} object-api-name="Apartment__c" density="compact">
+            <lightning-output-field field-name="ApartmentType__c"></lightning-output-field>
+            <lightning-output-field field-name="Country__c"></lightning-output-field>
+            <lightning-output-field field-name="Year_Built__c"></lightning-output-field>
+            <lightning-output-field field-name="Description__c"></lightning-output-field>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>

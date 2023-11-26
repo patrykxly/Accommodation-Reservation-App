@@ -1,0 +1,15 @@
+<template>
+    <lightning-combobox lwc:if={rooms} options={roomsOptions} onchange={handleRoomOptionChange} label="Room"></lightning-combobox>
+    <template lwc:if={chosenRoom}>
+        <div class="slds-var-m-top_medium">
+            <lightning-card title={chosenRoom.Name}>
+                <lightning-button label="Details" onclick={navigateToRecordViewPage} slot="actions"></lightning-button>
+                <lightning-record-view-form record-id={chosenRoom.Id} object-api-name="ApartmentRoom__c" density="compact">
+                    <lightning-output-field field-name="Apartment__c"></lightning-output-field>
+                    <lightning-output-field field-name="Price_Per_Night__c"></lightning-output-field>
+                    <lightning-output-field field-name="Description__c"></lightning-output-field>
+                </lightning-record-view-form>
+            </lightning-card>
+        </div>
+    </template>
+</template>
